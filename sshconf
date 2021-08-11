@@ -1,0 +1,11 @@
+#!/bin/bash
+if [$1]
+then
+echo "$1 is a wrong hostname"
+echo "Specify remote host"
+else
+SENDPATH="$1:~"
+scp ~/.vimrc $SENDPATH
+scp -r ~/.vim $SENDPATH
+ssh -A $1
+fi
